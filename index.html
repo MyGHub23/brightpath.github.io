@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Path by Abu Momen</title>
+    <meta name="description" content="Welcome to 'Bright Path' by Abu Momen! Explore interactive apps and curated books designed to make knowledge fun and accessible for lifelong learners.">
+    <meta name="author" content="Abu Momen">
+    <meta name="keywords" content="Learn and Grow, Abu Momen, interactive apps, educational resources, books, lifelong learning, technology, modern education">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Bright Path by Abu Momen">
+    <meta property="og:description" content="Explore engaging apps and books designed to make learning interactive and accessible. Discover insights into modern technology and lifelong education.">
+    <meta property="og:type" content="website">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Bright Path by Abu Momen">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bright Path by Abu Momen">
+    <meta name="twitter:description" content="Explore engaging apps and books designed to make learning interactive and accessible.">
+ 
+
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f3ec78, #af4261);
+            color: #333;
+            font-size: 16px;
+        }
+
+        header {
+            background: linear-gradient(120deg, #0073e6, #00d4ff);
+            color: white;
+            padding: 0.1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            max-width: 1200px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 280px;
+            max-width: 30%;
+            padding: .5rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Styles for Column1 links */
+        #column1 li a {
+            color: #ff4500;
+            /* Orange for Column1 */
+        }
+
+        /* Styles for Column2 links */
+        #column2 li a {
+            color: white;
+            /* DodgerBlue for Column2 */
+        }
+
+        .column:nth-child(1) {
+            background: linear-gradient(120deg, #f3a683, #ff7f50);
+            border: 1px solid #0073e6;
+            /* Blue border for the second column */
+        }
+
+        .column:nth-child(2) {
+            background: linear-gradient(120deg, #74b9ff, #0984e3);
+            border: 1px solid #ff4500;
+            /* Orange border for the first column */
+
+        }
+
+        .column:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .column h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #0073e6;
+            margin: 0.5rem 0 1rem;
+            border-bottom: 3px solid #0073e6;
+            padding-bottom: 0.3rem;
+        }
+
+        .column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+
+
+        li {
+            margin: 0.8rem 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #af4261;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        a:hover {
+            color: #ff4500;
+            text-shadow: 0 0 10px #f3ec78;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #0073e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer b {
+            color: #f3ec78;
+        }
+
+        .Welcome {
+            margin: 20px auto;
+            /* Centers horizontally */
+            padding: 0px 5px;
+            color: blue;
+            border: 2px solid rgb(224, 93, 93);
+            border-radius: 10px;
+            text-align: justify;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .wp1:first-letter {
+            font-size: 25px;
+            color: #f55f5f;
+        }
+
+        .motivation-text {
+            display: inline-block;
+            text-align: center;
+            font-size: 1.2rem;
+            /* Adjusted for mobile readability */
+            font-weight: bold;
+            color: #1e065f;
+            background-color: #f3a683;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin: 0 auto;
+            max-width: 90%;
+            /* Prevent overflow on smaller screens */
+            word-wrap: break-word;
+            /* Break long words */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            /* Adds padding to prevent content from touching edges */
+            flex-wrap: wrap;
+            /* Ensures the text wraps in smaller viewports */
+        }
+
+
+        .highlight {
+            color: yellow;
+            /* Highlight color (blue) */
+            font-weight: bold;
+            /* Makes it stand out */
+
+            padding: 0 0.2rem;
+            /* Adds some space around the word */
+            border-radius: 4px;
+            /* Slight rounding of the background */
+        }
+
+        @media (max-width: 480px) {
+            .motivation-text {
+                font-size: 1rem;
+                /* Reduce font size slightly for extra space */
+                padding: 0.5rem 0.8rem;
+                /* Adjust padding to save space */
+            }
+
+            .center-container {
+                padding: 2rem 1rem;
+                /* Adds extra padding for smaller screens */
+                min-height: 10vh;
+                /* Ensures space for all lines */
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .column {
+                max-width: 80%;
+                margin: 1rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .column {
+                max-width: 100%;
+                padding: 1rem;
+            }
+
+            .column h3 {
+                font-size: 1.4rem;
+            }
+
+            .column ul li {
+                font-size: 0.9rem;
+            }
+
+            img {
+                width: 80%;
+                height: auto;
+            }
+
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.85rem;
+            }
+
+            header h3 {
+                font-size: 1.5rem;
+            }
+
+            .column {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+
+            ul {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem;">
+            <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px;">
+            <h2 style="margin: 0; flex: 1; text-align: center; color: yellow;">Bright Path</h2>
+            <div style="width: 50px;"></div> <!-- Spacer to balance layout -->
+        </div>
+    </header>
+    <main>
+        <aside class="Welcome">
+            <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging applications,
+                including books and apps, designed to make knowledge interactive and fun. Our platform serves as a
+                gateway to enriching resources and tools tailored for lifelong learners.</p>
+
+        </aside>
+
+        <div class="links-container">
+            <div class="column">
+                <h3>📚 Book & Site</h3>
+                <ul id="column1"></ul>
+            </div>
+            <div class="column">
+                <h3>📱 App</h3>
+                <ul id="column2"></ul>
+            </div>
+
+            <div style="position: relative; display: inline-block; margin-top: 20px;">
+                <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
+                    I am taking care...
+                </div>
+                <img src="images/AM-pic.jpg" alt="AM Picture"
+                    style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
+                <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;"
+                    class="hover-text">
+                    <div style="font-size: 1rem;">Abu Momen</div>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">
+                        <a href="mailto:dreamcarebd@gmail.com"
+                            style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="center-container">
+        <div class="motivation-text">
+            "One of key pillar of <span class="highlight">Success</span> is constant progress, no matter how small"
+        </div>
+    </div>
+    <div class="footer">
+        Created By <b>DreamCare</b> | © 2023 All Rights Reserved
+    </div>
+    <script>
+        // Add your links here
+        const linksColumn1 = [
+            { name: "Dream Care", url: "https://myghub23.github.io/dreamcare.github.io/" },
+            { name: "Collection of Quotes (printed)" },
+            { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
+            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)" },
+        ];
+
+        const linksColumn2 = [
+            { name: "Quiz", url: "https://myghub23.github.io/quiz.github.io/indexstatic.html" },
+            { name: "Alphabet 4 ICT", url: "https://myghub23.github.io/alphabet4ict.github.io/" },
+            { name: "Planet", url: "https://myghub23.github.io/planet.github.io/" },
+            { name: "7wonders", url: "https://myghub23.github.io/7wonders.github.io/" },
+        ];
+
+        // Function to add links to columns
+        function addLinks(columnId, links, firstLetterColor) {
+            const column = document.getElementById(columnId);
+            links.forEach(link => {
+                const listItem = document.createElement('li');
+
+                // Add star in front of the name
+                const star = document.createElement('span');
+                star.textContent = "★ "; // Star symbol in front
+                star.style.color = "gold"; // Optional styling for the star
+                listItem.appendChild(star);
+
+                // Create the styled first letter
+                const firstLetterSpan = document.createElement('span');
+                firstLetterSpan.textContent = link.name.charAt(0); // First letter
+                firstLetterSpan.style.fontSize = "1.5em"; // Style for the first letter
+                firstLetterSpan.style.color = firstLetterColor; // Color for the column
+                firstLetterSpan.style.fontWeight = "bold";
+
+                // Create the rest of the name
+                const remainingText = document.createTextNode(link.name.slice(1)); // Remaining letters
+
+                // Append to the list item
+                if (link.url) {
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.target = "_blank";
+                    anchor.appendChild(firstLetterSpan); // Add the styled first letter
+                    anchor.appendChild(remainingText); // Add the remaining text
+                    listItem.appendChild(anchor);
+                } else {
+                    listItem.appendChild(firstLetterSpan);
+                    listItem.appendChild(remainingText);
+                }
+
+                column.appendChild(listItem);
+            });
+        }
+
+        // Add links to both columns with different first letter colors
+        addLinks("column1", linksColumn1, "#0073e6"); // Orange for Column1
+        addLinks("column2", linksColumn2, "#ff4500"); // Blue for Column2
+
+        // Hover text logic for image container
+        const imgContainer = document.querySelector("div[style*='position: relative']");
+        const hoverText = imgContainer.querySelector(".hover-text");
+
+        imgContainer.addEventListener("mouseover", () => {
+            hoverText.style.display = "block";
+        });
+
+        imgContainer.addEventListener("mouseout", () => {
+            hoverText.style.display = "none";
+        });
+    </script>
+
+
+</body>
+
+</html>
