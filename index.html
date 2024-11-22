@@ -360,43 +360,43 @@
             { name: "Dream Care", url: "https://myghub23.github.io/dreamcare.github.io/" },
             { name: "Collection of Quotes (printed)" },
             { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
-            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)" },
+            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/001mini.pdf" }, // Added the PDF location
         ];
-
+    
         const linksColumn2 = [
             { name: "Quiz", url: "https://myghub23.github.io/quiz.github.io/indexstatic.html" },
             { name: "Alphabet 4 ICT", url: "https://myghub23.github.io/alphabet4ict.github.io/" },
             { name: "Planet", url: "https://myghub23.github.io/planet.github.io/" },
             { name: "7wonders", url: "https://myghub23.github.io/7wonders.github.io/" },
         ];
-
+    
         // Function to add links to columns
         function addLinks(columnId, links, firstLetterColor) {
             const column = document.getElementById(columnId);
             links.forEach(link => {
                 const listItem = document.createElement('li');
-
+    
                 // Add star in front of the name
                 const star = document.createElement('span');
                 star.textContent = "★ "; // Star symbol in front
                 star.style.color = "gold"; // Optional styling for the star
                 listItem.appendChild(star);
-
+    
                 // Create the styled first letter
                 const firstLetterSpan = document.createElement('span');
                 firstLetterSpan.textContent = link.name.charAt(0); // First letter
                 firstLetterSpan.style.fontSize = "1.5em"; // Style for the first letter
                 firstLetterSpan.style.color = firstLetterColor; // Color for the column
                 firstLetterSpan.style.fontWeight = "bold";
-
+    
                 // Create the rest of the name
                 const remainingText = document.createTextNode(link.name.slice(1)); // Remaining letters
-
-                // Append to the list item
-                if (link.url) {
+    
+                if (link.url || link.pdf) {
                     const anchor = document.createElement('a');
-                    anchor.href = link.url;
-                    anchor.target = "_blank";
+                    anchor.href = link.url || link.pdf; // Use URL or PDF link
+                    anchor.target = "_blank"; // Open in new tab/window
+    
                     anchor.appendChild(firstLetterSpan); // Add the styled first letter
                     anchor.appendChild(remainingText); // Add the remaining text
                     listItem.appendChild(anchor);
@@ -404,28 +404,16 @@
                     listItem.appendChild(firstLetterSpan);
                     listItem.appendChild(remainingText);
                 }
-
+    
                 column.appendChild(listItem);
             });
         }
-
+    
         // Add links to both columns with different first letter colors
         addLinks("column1", linksColumn1, "#0073e6"); // Orange for Column1
         addLinks("column2", linksColumn2, "#ff4500"); // Blue for Column2
-
-        // Hover text logic for image container
-        const imgContainer = document.querySelector("div[style*='position: relative']");
-        const hoverText = imgContainer.querySelector(".hover-text");
-
-        imgContainer.addEventListener("mouseover", () => {
-            hoverText.style.display = "block";
-        });
-
-        imgContainer.addEventListener("mouseout", () => {
-            hoverText.style.display = "none";
-        });
     </script>
-
+    
 
 </body>
 
