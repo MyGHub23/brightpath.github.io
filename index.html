@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bright Path by Abu Momen</title>
-    <meta name="description" content="Welcome to 'Bright Path' by Abu Momen! Explore interactive apps and curated books designed to make knowledge fun and accessible for lifelong learners.">
+    <meta name="description"
+        content="Welcome to 'Bright Path' by Abu Momen! Explore interactive apps and curated books designed to make knowledge fun and accessible for lifelong learners.">
     <meta name="author" content="Abu Momen">
-    <meta name="keywords" content="Learn and Grow, Abu Momen, interactive apps, educational resources, books, lifelong learning, technology, modern education">
+    <meta name="keywords"
+        content="Learn and Grow, Abu Momen, interactive apps, educational resources, books, lifelong learning, technology, modern education">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Bright Path by Abu Momen">
-    <meta property="og:description" content="Explore engaging apps and books designed to make learning interactive and accessible. Discover insights into modern technology and lifelong education.">
+    <meta property="og:description"
+        content="Explore engaging apps and books designed to make learning interactive and accessible. Discover insights into modern technology and lifelong education.">
     <meta property="og:type" content="website">
 
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Bright Path by Abu Momen">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bright Path by Abu Momen">
-    <meta name="twitter:description" content="Explore engaging apps and books designed to make learning interactive and accessible.">
- 
+    <meta name="twitter:description"
+        content="Explore engaging apps and books designed to make learning interactive and accessible.">
+
 
     <style>
         body {
@@ -310,7 +314,8 @@
     </header>
     <main>
         <aside class="Welcome">
-            <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging applications,
+            <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging
+                applications,
                 including books and apps, designed to make knowledge interactive and fun. Our platform serves as a
                 gateway to enriching resources and tools tailored for lifelong learners.</p>
 
@@ -360,14 +365,14 @@
             { name: "Dream Care", url: "https://myghub23.github.io/dreamcare.github.io/" },
             { name: "Collection of Quotes (printed)" },
             { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
-           { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/001mini.pdf", view: true }, // View PDF inline
+            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/001mini.pdf", view: true } // View PDF inline
         ];
     
         const linksColumn2 = [
             { name: "Quiz", url: "https://myghub23.github.io/quiz.github.io/indexstatic.html" },
             { name: "Alphabet 4 ICT", url: "https://myghub23.github.io/alphabet4ict.github.io/" },
             { name: "Planet", url: "https://myghub23.github.io/planet.github.io/" },
-            { name: "7wonders", url: "https://myghub23.github.io/7wonders.github.io/" },
+            { name: "7wonders", url: "https://myghub23.github.io/7wonders.github.io/" }
         ];
     
         // Function to add links to columns
@@ -392,15 +397,25 @@
                 // Create the rest of the name
                 const remainingText = document.createTextNode(link.name.slice(1)); // Remaining letters
     
-                if (link.url || link.pdf) {
+                if (link.view && link.pdf) {
+                    // Create a link that opens the PDF in a new tab
                     const anchor = document.createElement('a');
-                    anchor.href = link.url || link.pdf; // Use URL or PDF link
-                    anchor.target = "_blank"; // Open in new tab/window
-    
-                    anchor.appendChild(firstLetterSpan); // Add the styled first letter
-                    anchor.appendChild(remainingText); // Add the remaining text
+                    anchor.href = link.pdf;
+                    anchor.target = "_blank"; // Open in a new tab/window
+                    anchor.rel = "noopener noreferrer"; // Security improvement
+                    anchor.appendChild(firstLetterSpan);
+                    anchor.appendChild(remainingText);
+                    listItem.appendChild(anchor);
+                } else if (link.url) {
+                    // For regular links
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.target = "_blank"; // Open in a new tab
+                    anchor.appendChild(firstLetterSpan);
+                    anchor.appendChild(remainingText);
                     listItem.appendChild(anchor);
                 } else {
+                    // Just display the text if no link
                     listItem.appendChild(firstLetterSpan);
                     listItem.appendChild(remainingText);
                 }
@@ -410,10 +425,11 @@
         }
     
         // Add links to both columns with different first letter colors
-        addLinks("column1", linksColumn1, "#0073e6"); // Orange for Column1
-        addLinks("column2", linksColumn2, "#ff4500"); // Blue for Column2
+        addLinks("column1", linksColumn1, "#0073e6"); // Blue for Column1
+        addLinks("column2", linksColumn2, "#ff4500"); // Orange for Column2
     </script>
     
+
 
 </body>
 
