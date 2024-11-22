@@ -335,14 +335,14 @@
                 <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
                     I am taking care...
                 </div>
-                <img src="images/AM-pic.jpg" alt="AM Picture"
-                    style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
-                <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;"
-                    class="hover-text">
+                <a href="#" id="am-link">
+                    <img src="images/AM-pic.jpg" alt="AM Picture"
+                        style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
+                </a>
+                <div id="info-container" style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 10px; font-size: 0.9rem; display: none; z-index: 10;">
                     <div style="font-size: 1rem;">Abu Momen</div>
                     <div style="font-size: 0.8rem; margin-top: 5px;">
-                        <a href="mailto:dreamcarebd@gmail.com"
-                            style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
+                        <a href="mailto:dreamcarebd@gmail.com" style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -367,36 +367,36 @@
             { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
             { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/001mini.pdf", view: true } // View PDF inline
         ];
-    
+
         const linksColumn2 = [
             { name: "Quiz", url: "https://myghub23.github.io/quiz.github.io/indexstatic.html" },
             { name: "Alphabet 4 ICT", url: "https://myghub23.github.io/alphabet4ict.github.io/" },
             { name: "Planet", url: "https://myghub23.github.io/planet.github.io/" },
             { name: "7wonders", url: "https://myghub23.github.io/7wonders.github.io/" }
         ];
-    
+
         // Function to add links to columns
         function addLinks(columnId, links, firstLetterColor) {
             const column = document.getElementById(columnId);
             links.forEach(link => {
                 const listItem = document.createElement('li');
-    
+
                 // Add star in front of the name
                 const star = document.createElement('span');
                 star.textContent = "★ "; // Star symbol in front
                 star.style.color = "gold"; // Optional styling for the star
                 listItem.appendChild(star);
-    
+
                 // Create the styled first letter
                 const firstLetterSpan = document.createElement('span');
                 firstLetterSpan.textContent = link.name.charAt(0); // First letter
                 firstLetterSpan.style.fontSize = "1.5em"; // Style for the first letter
                 firstLetterSpan.style.color = firstLetterColor; // Color for the column
                 firstLetterSpan.style.fontWeight = "bold";
-    
+
                 // Create the rest of the name
                 const remainingText = document.createTextNode(link.name.slice(1)); // Remaining letters
-    
+
                 if (link.view && link.pdf) {
                     // Create a link that opens the PDF in a new tab
                     const anchor = document.createElement('a');
@@ -419,16 +419,39 @@
                     listItem.appendChild(firstLetterSpan);
                     listItem.appendChild(remainingText);
                 }
-    
+
                 column.appendChild(listItem);
             });
         }
-    
+
         // Add links to both columns with different first letter colors
         addLinks("column1", linksColumn1, "#0073e6"); // Blue for Column1
         addLinks("column2", linksColumn2, "#ff4500"); // Orange for Column2
+
+        // JavaScript to toggle visibility
+    const linkElement = document.getElementById('am-link');
+    const infoContainer = document.getElementById('info-container');
+
+    // Toggle visibility when clicking on the image
+    linkElement.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevents the default link behavior
+        if (infoContainer.style.display === 'none' || !infoContainer.style.display) {
+            infoContainer.style.display = 'block';
+        } else {
+            infoContainer.style.display = 'none';
+        }
+    });
+
+    // Hide the info container when clicking outside
+    document.addEventListener('click', (event) => {
+        // Check if the click is outside the info container and the link
+        if (!infoContainer.contains(event.target) && !linkElement.contains(event.target)) {
+            infoContainer.style.display = 'none';
+        }
+    });
+
     </script>
-    
+
 
 
 </body>
