@@ -249,6 +249,7 @@
         }
 
         @media (max-width: 768px) {
+
             .links-container {
                 flex-direction: column;
                 align-items: center;
@@ -298,13 +299,11 @@
             .footer {
                 font-size: 0.75rem;
             }
+
         }
 
-        @media (max-width: 480px) {
-            #info-container {
-                bottom: -30px;
-                /* Move it below the picture on mobile */
-            }
+        #info-container {
+            bottom: 10px;
         }
     </style>
 
@@ -338,7 +337,7 @@
                 <ul id="column2"></ul>
             </div>
 
-            <div style="position: relative; display: inline-block; margin-top: 20px;">
+            <div style="position: relative; display: inline-block; margin-top: 60px;">
                 <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
                     I am taking care...
                 </div>
@@ -347,7 +346,7 @@
                         style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
                 </a>
                 <div id="info-container"
-                    style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 10px; font-size: 0.9rem; display: none; z-index: 10;">
+                    style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;">
                     <div style="font-size: 1rem;">Abu Momen</div>
                     <div style="font-size: 0.8rem; margin-top: 5px;">
                         <a href="mailto:dreamcarebd@gmail.com"
@@ -441,6 +440,20 @@
         const linkElement = document.getElementById('am-link');
         const infoContainer = document.getElementById('info-container');
 
+        // Adjust position for mobile
+        function adjustInfoPosition() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 480) {
+                infoContainer.style.bottom = "-50px"; // Adjust for mobile screens
+            } else {
+                infoContainer.style.bottom = "10px"; // Reset for larger screens
+            }
+        }
+
+        // Call on load and resize
+        window.addEventListener('load', adjustInfoPosition);
+        window.addEventListener('resize', adjustInfoPosition);
+
         // Toggle visibility when clicking on the image
         linkElement.addEventListener('click', (event) => {
             event.preventDefault(); // Prevents the default link behavior
@@ -453,12 +466,10 @@
 
         // Hide the info container when clicking outside
         document.addEventListener('click', (event) => {
-            // Check if the click is outside the info container and the link
             if (!infoContainer.contains(event.target) && !linkElement.contains(event.target)) {
                 infoContainer.style.display = 'none';
             }
         });
-
     </script>
 
 
