@@ -381,127 +381,104 @@
         Created By <b>DreamCare</b> | © 2023 All Rights Reserved
     </div>
     <script>
-        // Define links for Column 1 and Column 2
+        // Add your links here
         const linksColumn1 = [
             { name: "Dream Care", url: "https://myghub23.github.io/dreamcare.github.io/" },
-            { 
-                name: "Collection of Quotes (printed)",
-                pdfs: ["images/quotes01-34.pdf", "images/quotes35-79.pdf"], // Multiple PDFs
-                view: true
-            },
+
+            { name: "Collection of Quotes (printed)" , pdf: "images/02quotes.pdf", view: true},
             { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
-            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/001mini.pdf", view: true }
+           
+            { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/01mini.pdf", view: true } // View PDF inline
         ];
-    
+
         const linksColumn2 = [
             { name: "Quiz", url: "https://myghub23.github.io/quiz.github.io/indexstatic.html" },
             { name: "Alphabet 4 ICT", url: "https://myghub23.github.io/alphabet4ict.github.io/" },
             { name: "Planet", url: "https://myghub23.github.io/planet.github.io/" },
             { name: "7wonders & more...", url: "https://myghub23.github.io/7wonders.github.io/" }
         ];
-    
-        // Function to add links to the given column
+
+        // Function to add links to columns
         function addLinks(columnId, links, firstLetterColor) {
             const column = document.getElementById(columnId);
             links.forEach(link => {
                 const listItem = document.createElement('li');
-    
+
                 // Add star in front of the name
                 const star = document.createElement('span');
-                star.textContent = "★ ";
-                star.style.color = "gold";
+                star.textContent = "★ "; // Star symbol in front
+                star.style.color = "gold"; // Optional styling for the star
                 listItem.appendChild(star);
-    
-                // Style the first letter of the link name
+
+                // Create the styled first letter
                 const firstLetterSpan = document.createElement('span');
                 firstLetterSpan.textContent = link.name.charAt(0); // First letter
-                firstLetterSpan.style.fontSize = "1.5em";
-                firstLetterSpan.style.color = firstLetterColor;
+                firstLetterSpan.style.fontSize = "1.5em"; // Style for the first letter
+                firstLetterSpan.style.color = firstLetterColor; // Color for the column
                 firstLetterSpan.style.fontWeight = "bold";
-    
+
+                // Create the rest of the name
                 const remainingText = document.createTextNode(link.name.slice(1)); // Remaining letters
-    
-                if (link.view && link.pdfs) {
-                    // Link for viewing multiple PDFs
-                    const anchor = document.createElement('a');
-                    anchor.href = "#";
-                    anchor.onclick = function (e) {
-                        e.preventDefault();
-                        viewMultiplePDFs(link.pdfs);
-                    };
-                    anchor.appendChild(firstLetterSpan);
-                    anchor.appendChild(remainingText);
-                    listItem.appendChild(anchor);
-                } else if (link.view && link.pdf) {
-                    // Link for a single PDF
+
+                if (link.view && link.pdf) {
+                    // Create a link that opens the PDF in a new tab
                     const anchor = document.createElement('a');
                     anchor.href = link.pdf;
-                    anchor.target = "_blank";
-                    anchor.rel = "noopener noreferrer";
+                    anchor.target = "_blank"; // Open in a new tab/window
+                    anchor.rel = "noopener noreferrer"; // Security improvement
                     anchor.appendChild(firstLetterSpan);
                     anchor.appendChild(remainingText);
                     listItem.appendChild(anchor);
                 } else if (link.url) {
-                    // Regular web links
+                    // For regular links
                     const anchor = document.createElement('a');
                     anchor.href = link.url;
-                    anchor.target = "_blank";
+                    anchor.target = "_blank"; // Open in a new tab
                     anchor.appendChild(firstLetterSpan);
                     anchor.appendChild(remainingText);
                     listItem.appendChild(anchor);
                 } else {
-                    // Display text if no link
+                    // Just display the text if no link
                     listItem.appendChild(firstLetterSpan);
                     listItem.appendChild(remainingText);
                 }
-    
+
                 column.appendChild(listItem);
             });
         }
-    
-        // Function to view multiple PDFs in the same window
-        function viewMultiplePDFs(pdfs) {
-            const viewerWindow = window.open("", "_blank"); // Open in a new tab
-            viewerWindow.document.write('<!DOCTYPE html><html lang="en"><head><title>PDF Viewer</title></head><body>');
-            pdfs.forEach(pdf => {
-                viewerWindow.document.write(`<embed src="${pdf}" type="application/pdf" width="100%" height="600px" style="margin-bottom: 20px;">`);
-            });
-            viewerWindow.document.write('</body></html>');
-            viewerWindow.document.close();
-        }
-    
-        // Add links to columns
-        addLinks("column1", linksColumn1, "#0073e6"); // Blue color for Column 1
-        addLinks("column2", linksColumn2, "#ff4500"); // Orange color for Column 2
-    
-        // JavaScript for the toggling feature
+
+        // Add links to both columns with different first letter colors
+        addLinks("column1", linksColumn1, "#0073e6"); // Blue for Column1
+        addLinks("column2", linksColumn2, "#ff4500"); // Orange for Column2
+
+        // JavaScript to toggle visibility
         const linkElement = document.getElementById('am-link');
         const infoContainer = document.getElementById('info-container');
-    
-        // Adjust position for mobile screens
+
+        // Adjust position for mobile
         function adjustInfoPosition() {
             const screenWidth = window.innerWidth;
             if (screenWidth <= 480) {
-                infoContainer.style.bottom = "-50px";
+                infoContainer.style.bottom = "-50px"; // Adjust for mobile screens
             } else {
-                infoContainer.style.bottom = "10px";
+                infoContainer.style.bottom = "10px"; // Reset for larger screens
             }
         }
-    
-        // Call adjustInfoPosition on load and resize
+
+        // Call on load and resize
         window.addEventListener('load', adjustInfoPosition);
         window.addEventListener('resize', adjustInfoPosition);
-    
-        // Toggle visibility of info container when clicking the image
+
+        // Toggle visibility when clicking on the image
         linkElement.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default link behavior
+            event.preventDefault(); // Prevents the default link behavior
             if (infoContainer.style.display === 'none' || !infoContainer.style.display) {
                 infoContainer.style.display = 'block';
             } else {
                 infoContainer.style.display = 'none';
             }
         });
-    
+
         // Hide the info container when clicking outside
         document.addEventListener('click', (event) => {
             if (!infoContainer.contains(event.target) && !linkElement.contains(event.target)) {
@@ -509,7 +486,6 @@
             }
         });
     </script>
-    
 
 
 
