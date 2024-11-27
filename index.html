@@ -325,10 +325,16 @@
 
 <body>
     <header>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; position: relative;">
             <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px;">
             <h2 style="margin: 0; flex: 1; text-align: center; color: yellow;">BrightPath</h2>
-            <div style="width: 50px;"></div> <!-- Spacer to balance layout -->
+            <div style="cursor: pointer; display: flex; align-items: center;" onclick="toggleEmailInfo()">
+                <img src="images/envelope-icon.png" alt="Email" style="width: 20px; height: 20px; margin-right: 120px;">
+            </div>
+            <div id="email-info" style="display: none; position: absolute; right: 50px; top: 100%; background:blue; border: 1px solid #ccc; padding: 5px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p style="margin: 0; font-size: 1rem; color:white"><b>Abu Momen</b></p>
+                <a href="mailto:dreamcarebd@gmail.com" style="font-size: 0.8rem; text-decoration: none; color:white;">dreamcarebd@gmail.com</a>
+            </div>
         </div>
     </header>
     <main>
@@ -485,6 +491,24 @@
                 infoContainer.style.display = 'none';
             }
         });
+
+        function toggleEmailInfo() {
+        const emailInfo = document.getElementById('email-info');
+        if (emailInfo.style.display === 'none' || !emailInfo.style.display) {
+            emailInfo.style.display = 'block';
+        } else {
+            emailInfo.style.display = 'none';
+        }
+    }
+
+    // Close the email info when clicking outside
+    document.addEventListener('click', function (event) {
+        const emailInfo = document.getElementById('email-info');
+        const contactButton = emailInfo.previousElementSibling;
+        if (!emailInfo.contains(event.target) && !contactButton.contains(event.target)) {
+            emailInfo.style.display = 'none';
+        }
+    });
     </script>
 
 
