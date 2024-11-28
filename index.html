@@ -226,12 +226,13 @@
                 /* Reduce font size slightly for extra space */
                 padding: 0.5rem 0.8rem;
                 /* Adjust padding to save space */
+                margin-top: -50px;
             }
-
+          
             .center-container {
                 padding: 2rem 1rem;
                 /* Adds extra padding for smaller screens */
-                min-height: 10vh;
+                min-height: -40vh;
                 /* Ensures space for all lines */
             }
         }
@@ -246,6 +247,7 @@
                 max-width: 80%;
                 margin: 1rem 0;
             }
+            
         }
 
         @media (max-width: 768px) {
@@ -276,6 +278,7 @@
             .footer {
                 font-size: 0.8rem;
             }
+           
         }
 
         @media (max-width: 480px) {
@@ -315,8 +318,39 @@
             }
 
             div[style*="margin-top: 60px;"] {
-            margin-top: 10px !important; /* Adjust the margin-top for mobile devices */
+                margin-top: 10px !important;
+                /* Adjust the margin-top for mobile devices */
+            }
+
+       
         }
+
+        /* Envelop */
+        @media (max-width: 768px) {
+            header div {
+                justify-content: center;
+                /* Centers the items in the header */
+                gap: 10px;
+                /* Adds space between elements */
+
+            }
+
+            header div h2 {
+                text-align: center;
+                flex: unset;
+                /* Resets flex property to avoid title shrinkage */
+            }
+
+            #envelope-link {
+                margin-right: -10px;
+            }
+
+            #logo-img {
+                margin-right: 0;
+                /* Remove the right margin */
+                margin-left: 40px;
+                /* Shift the logo slightly to the left */
+            }
         }
     </style>
 
@@ -325,12 +359,37 @@
 
 <body>
     <header>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem;">
-            <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px;">
-            <h2 style="margin: 0; flex: 1; text-align: center; color: yellow;">BrightPath</h2>
-            <div style="width: 50px;"></div> <!-- Spacer to balance layout -->
+        <div style="display: flex; justify-content: center; align-items: center; padding: 0.5rem;">
+            <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;" id="logo-img">
+            <!-- <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;"> -->
+            <h2 style="margin: 0; text-align: center; color: yellow; flex: 1;">BrightPath</h2>
+            <div style="position: relative; margin-left: 10px;">
+                <a href="#" id="envelope-link" style="display: inline-block;">
+                    <img src="images/envelope.jpg" alt="Envelope"
+                        style="width: 30px; height: 30px; margin-right: 100px; border: 2px solid red;">
+                </a>
+                <div id="envelope-info" style="
+                display: none;
+                position: absolute;
+                top: 50px;
+                    left: calc(100% - 200px); /* Adjust as needed */
+                background-color: blue;
+                color: white;
+                padding: 5px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                font-size: 0.9rem;">
+                    <div style="font-weight: bold;">Abu Momen</div>
+                    <div>
+                        <a href="mailto:dreamcarebd@gmail.com"
+                            style="color: white; text-decoration: none; font-weight: normal;">dreamcarebd@gmail.com</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+
     <main>
         <aside class="Welcome">
             <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging
@@ -350,22 +409,25 @@
                 <ul id="column2"></ul>
             </div>
 
-            <div style="position: relative; display: inline-block; margin-top: 60px;">
+            <div style="position: relative; display: inline-block; margin-top: -10px;">
                 <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
-                    I am taking care...
+                    <p> I am taking care... </p>           
                 </div>
-                <a href="#" id="am-link">
+                <a id="am-link">
                     <img src="images/AM-pic.jpg" alt="AM Picture"
                         style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
-                </a>
-                <div id="info-container"
+                        <p style="color: white; font-weight: bold; margin-left: 65px; font-style: italic;">
+                            <strong>Abu Momen</strong>
+                          </p>
+                    </a>
+                <!-- <div id="info-container"
                     style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;">
                     <div style="font-size: 1rem;">Abu Momen</div>
                     <div style="font-size: 0.8rem; margin-top: 5px;">
                         <a href="mailto:dreamcarebd@gmail.com"
                             style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -385,9 +447,9 @@
         const linksColumn1 = [
             { name: "Dream Care", url: "https://myghub23.github.io/dreamcare.github.io/" },
 
-            { name: "Collection of Quotes (printed)" , pdf: "images/02quotes.pdf", view: true},
+            { name: "Collection of Quotes (printed)", pdf: "images/02quotes.pdf", view: true },
             { name: "Today's AI", url: "https://myghub23.github.io/todaysai.github.io/" },
-           
+
             { name: "রোবো ও মিনির বুদ্ধির অভিযান (Waiting...)", pdf: "images/01mini.pdf", view: true } // View PDF inline
         ];
 
@@ -453,7 +515,7 @@
 
         // JavaScript to toggle visibility
         const linkElement = document.getElementById('am-link');
-        const infoContainer = document.getElementById('info-container');
+        //const infoContainer = document.getElementById('info-container');
 
         // Adjust position for mobile
         function adjustInfoPosition() {
@@ -485,6 +547,29 @@
                 infoContainer.style.display = 'none';
             }
         });
+
+        // Envelop
+        // Envelope toggle functionality
+        const envelopeLink = document.getElementById('envelope-link');
+        const envelopeInfo = document.getElementById('envelope-info');
+
+        // Toggle visibility on click
+        envelopeLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (envelopeInfo.style.display === 'none' || !envelopeInfo.style.display) {
+                envelopeInfo.style.display = 'block';
+            } else {
+                envelopeInfo.style.display = 'none';
+            }
+        });
+
+        // Hide the info box when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!envelopeInfo.contains(event.target) && !envelopeLink.contains(event.target)) {
+                envelopeInfo.style.display = 'none';
+            }
+        });
+
     </script>
 
 
