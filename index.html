@@ -228,7 +228,7 @@
                 /* Adjust padding to save space */
                 margin-top: -50px;
             }
-          
+
             .center-container {
                 padding: 2rem 1rem;
                 /* Adds extra padding for smaller screens */
@@ -247,7 +247,7 @@
                 max-width: 80%;
                 margin: 1rem 0;
             }
-            
+
         }
 
         @media (max-width: 768px) {
@@ -278,7 +278,7 @@
             .footer {
                 font-size: 0.8rem;
             }
-           
+
         }
 
         @media (max-width: 480px) {
@@ -322,7 +322,7 @@
                 /* Adjust the margin-top for mobile devices */
             }
 
-       
+
         }
 
         /* Envelop */
@@ -361,6 +361,11 @@
     <header>
         <div style="display: flex; justify-content: center; align-items: center; padding: 0.5rem;">
             <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;" id="logo-img">
+            <!-- <img src="images/brightpath.png" alt="QR Code" id="qr-code" style="display: none; margin: 0 auto; max-width: 150px;"> -->
+
+            <!-- Button to Toggle QR Code -->
+
+
             <!-- <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;"> -->
             <h2 style="margin: 0; text-align: center; color: yellow; flex: 1;">BrightPath</h2>
             <div style="position: relative; margin-left: 10px;">
@@ -389,38 +394,39 @@
             </div>
         </div>
     </header>
+    <button onclick="toggleQRCode()" style="cursor: pointer; margin-top: 10px; margin-left: 100px; color:#f3ec78; background-color: #0073e6;border-radius: 10px;">QRCode</button>
+    <img src="images/brightpath.png" alt="QR Code" id="qr-code"
+        style="display: none; position: absolute; top: 100px; left: 50px; max-width: 150px; z-index: 1000;">
+    <aside class="Welcome">
+        <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging
+            applications,
+            including books and apps, designed to make knowledge interactive and fun. Our platform serves as a
+            gateway to enriching resources and tools tailored for lifelong learners.</p>
 
-    <main>
-        <aside class="Welcome">
-            <p class="wp1">Welcome to Bright Path! Where innovation meets learning, explore a variety of engaging
-                applications,
-                including books and apps, designed to make knowledge interactive and fun. Our platform serves as a
-                gateway to enriching resources and tools tailored for lifelong learners.</p>
+    </aside>
 
-        </aside>
+    <div class="links-container">
+        <div class="column">
+            <h3>📚 Book & Site</h3>
+            <ul id="column1"></ul>
+        </div>
+        <div class="column">
+            <h3>📱 App</h3>
+            <ul id="column2"></ul>
+        </div>
 
-        <div class="links-container">
-            <div class="column">
-                <h3>📚 Book & Site</h3>
-                <ul id="column1"></ul>
+        <div style="position: relative; display: inline-block; margin-top: -10px;">
+            <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
+                <p> I am taking care... </p>
             </div>
-            <div class="column">
-                <h3>📱 App</h3>
-                <ul id="column2"></ul>
-            </div>
-
-            <div style="position: relative; display: inline-block; margin-top: -10px;">
-                <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
-                    <p> I am taking care... </p>           
-                </div>
-                <a id="am-link">
-                    <img src="images/AM-pic.jpg" alt="AM Picture"
-                        style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
-                        <p style="color: white; font-weight: bold; margin-left: 65px; font-style: italic;">
-                            <strong>Abu Momen</strong>
-                          </p>
-                    </a>
-                <!-- <div id="info-container"
+            <a id="am-link">
+                <img src="images/AM-pic.jpg" alt="AM Picture"
+                    style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
+                <p style="color: white; font-weight: bold; margin-left: 65px; font-style: italic;">
+                    <strong>Abu Momen</strong>
+                </p>
+            </a>
+            <!-- <div id="info-container"
                     style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;">
                     <div style="font-size: 1rem;">Abu Momen</div>
                     <div style="font-size: 0.8rem; margin-top: 5px;">
@@ -428,8 +434,8 @@
                             style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
                     </div>
                 </div> -->
-            </div>
         </div>
+    </div>
 
 
     </main>
@@ -569,6 +575,16 @@
                 envelopeInfo.style.display = 'none';
             }
         });
+
+        // QRCode
+        function toggleQRCode() {
+            var qrCode = document.getElementById("qr-code");
+            if (qrCode.style.display === "none" || qrCode.style.display === "") {
+                qrCode.style.display = "block";
+            } else {
+                qrCode.style.display = "none";
+            }
+        }
 
     </script>
 
