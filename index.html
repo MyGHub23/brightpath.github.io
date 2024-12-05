@@ -234,9 +234,6 @@
             /* Include padding in width calculation */
         }
 
-
-
-
         .highlight {
             color: yellow;
             /* Highlight color (blue) */
@@ -247,171 +244,6 @@
             /* Adds some space around the word */
             border-radius: 4px;
             /* Slight rounding of the background */
-        }
-
-        @media (max-width: 480px) {
-            .motivation-text {
-                font-size: 1rem;
-                /* Reduce font size slightly for extra space */
-                padding: 0.5rem 0.8rem;
-                /* Adjust padding to save space */
-                margin-top: -50px;
-            }
-
-            .center-container {
-                padding: 1rem 1rem;
-                /* Adds extra padding for smaller screens */
-                min-height: -40vh;
-                /* Ensures space for all lines */
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .links-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .column {
-                max-width: 80%;
-                margin: 1rem 0;
-            }
-
-            .center-container {
-                padding: 1rem 1rem;
-                /* Adds extra padding for smaller screens */
-                min-height: -40vh;
-                /* Ensures space for all lines */
-            }
-        }
-
-        @media (max-width: 768px) {
-
-            .links-container {
-                flex-direction: column;
-                /* Stack columns vertically */
-                align-items: center;
-                padding: 0;
-            }
-
-            .column {
-                width: 90%;
-                /* Reduce column width */
-                margin: 1rem auto;
-            }
-
-            .column h3 {
-                font-size: 1.4rem;
-            }
-
-            .column ul li {
-                font-size: 0.9rem;
-            }
-
-            img {
-                width: 80%;
-                height: auto;
-            }
-
-            .footer {
-                font-size: 0.8rem;
-            }
-
-            .center-container {
-                padding: 1rem 1rem;
-                /* Adds extra padding for smaller screens */
-                min-height: -40vh;
-                /* Ensures space for all lines */
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 0.85rem;
-            }
-
-            .links-container {
-                gap: 0.5rem;
-                /* Reduce gap for smaller screens */
-            }
-
-            .column {
-                margin: 0 auto;
-                width: 100%;
-                /* Columns take full width */
-                padding: 0.5rem;
-            }
-
-            .submenu {
-                top: auto;
-                /* Adjust position */
-                width: 90%;
-                /* Ensure it fits within the screen */
-            }
-
-            .center-container {
-                padding: 1rem;
-            }
-        }
-
-        ul {
-            font-size: 0.85rem;
-        }
-
-        .footer {
-            font-size: 0.75rem;
-        }
-
-        .Welcome {
-            width: 95%;
-        }
-
-     
-        div[style*="margin-top: 60px;"] {
-            margin-top: 10px !important;
-            /* Adjust the margin-top for mobile devices */
-        }
-
-        .center-container {
-            padding: 1rem 1rem;
-            /* Adds extra padding for smaller screens */
-            min-height: -40vh;
-            /* Ensures space for all lines */
-        }
-
-        }
-
-        /* Envelop */
-        @media (max-width: 768px) {
-            header div {
-                justify-content: center;
-                /* Centers the items in the header */
-                gap: 10px;
-                /* Adds space between elements */
-
-            }
-
-            header div h2 {
-                text-align: center;
-                flex: unset;
-                /* Resets flex property to avoid title shrinkage */
-            }
-
-            #envelope-link {
-                margin-right: -10px;
-            }
-
-            #logo-img {
-                margin-right: 0;
-                /* Remove the right margin */
-                margin-left: 80px;
-                /* Shift the logo slightly to the left */
-
-            }
-
-            .menu-button {
-                margin-right: 5px;
-            }
         }
 
         .menu-button {
@@ -465,8 +297,200 @@
             background-color: yellow;
             color: #0073e6;
         }
-    </style>
 
+        @media (max-width: 1024px) {
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .column {
+                max-width: 80%;
+                margin: 1rem 0;
+            }
+
+            .center-container {
+                padding: 1rem 1rem;
+                /* Adds extra padding for smaller screens */
+                min-height: -40vh;
+                /* Ensures space for all lines */
+            }
+
+            .motivation-text {
+                font-size: 1rem;
+                /* Reduce font size slightly for extra space */
+                padding: 0.1rem 0.1rem;
+                /* Adjust padding to save space */
+                margin-bottom: 20px;
+
+
+            }
+        }
+
+
+@media (max-width: 768px) {
+
+            .links-container {
+                flex-direction: column;
+                /* Stack columns vertically */
+                align-items: center;
+                padding: 0;
+            }
+
+            .column {
+                width: 90%;
+                /* Reduce column width */
+                margin: 1rem auto;
+            }
+
+            .column h3 {
+                font-size: 1.4rem;
+            }
+
+            .column ul li {
+                font-size: 0.9rem;
+            }
+
+            img {
+                width: 80%;
+                height: auto;
+            }
+
+            .footer {
+                font-size: 0.8rem;
+            }
+
+            .center-container {
+                padding: 1rem 1rem;
+                /* Adds extra padding for smaller screens */
+                min-height: -40vh;
+                /* Ensures space for all lines */
+            }
+
+            .motivation-text {
+                font-size: 1rem;
+                /* Reduce font size slightly for extra space */
+                padding: 0.1rem 0.1rem;
+                /* Adjust padding to save space */
+                margin-bottom: 20px;
+
+            }
+
+
+            ul {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                font-size: 0.75rem;
+            }
+
+            .Welcome {
+                width: 95%;
+            }
+
+
+            div[style*="margin-top: 60px;"] {
+                margin-top: 10px !important;
+                /* Adjust the margin-top for mobile devices */
+            }
+
+            .center-container {
+                padding: 1rem 1rem;
+                /* Adds extra padding for smaller screens */
+                min-height: -40vh;
+                /* Ensures space for all lines */
+            }
+
+        }
+
+         header div {
+                justify-content: center;
+                /* Centers the items in the header */
+                gap: 10px;
+                /* Adds space between elements */
+
+            }
+
+            header div h2 {
+                text-align: center;
+                flex: unset;
+                /* Resets flex property to avoid title shrinkage */
+            }
+
+            #envelope-link {
+                margin-right: -10px;
+            }
+
+            #logo-img {
+                margin-right: 0;
+                /* Remove the right margin */
+                margin-left: 80px;
+                /* Shift the logo slightly to the left */
+
+            }
+
+            .menu-button {
+                margin-right: 5px;
+            }
+
+            .motivation-text {
+                font-size: 1rem;
+                /* Reduce font size slightly for extra space */
+                padding: 0.1rem 0.1rem;
+                /* Adjust padding to save space */
+                margin-bottom: 20px;
+
+            }
+            #logo-img {
+                margin-right: 5px;
+                /* Remove the right margin */
+            }
+        }
+
+@media (max-width: 480px) {
+     
+            .links-container {
+                gap: 0.5rem;
+                /* Reduce gap for smaller screens */
+            }
+
+            .column {
+                margin: 0 auto;
+                width: 100%;
+                /* Columns take full width */
+                padding: 0.5rem;
+            }
+
+            .submenu {
+                top: auto;
+                /* Adjust position */
+                width: 90%;
+                /* Ensure it fits within the screen */
+            }
+
+            .center-container {
+                padding: 1rem 1rem;
+                /* Adds extra padding for smaller screens */
+                min-height: -40vh;
+                /* Ensures space for all lines */
+            }
+
+            .motivation-text {
+                font-size: 1rem;
+                /* Reduce font size slightly for extra space */
+                padding: 0.1rem 0.1rem;
+                /* Adjust padding to save space */
+                margin-bottom: 20px;
+
+            }
+            #logo-img {
+                margin-right: 5px;
+                /* Remove the right margin */
+            }
+        }
+       
+    </style>
 
 </head>
 
@@ -522,26 +546,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Envelope Info -->
-                <div id="envelope-info" style="
-                    display: none;
-                    position: absolute;
-                    top: 50px;
-                    left: calc(100% - 200px);
-                    background-color: blue;
-                    color: white;
-                    padding: 0px;
-                    border-radius: 4px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    text-align: center;
-                    font-size: 0.8rem;">
-                    <div style="font-weight: bold;">Abu Momen</div>
-                    <div>
-                        <a href="mailto:dreamcarebd@gmail.com"
-                            style="color: white; text-decoration: none; font-weight: normal;">dreamcarebd@gmail.com</a>
-                    </div>
-                </div>
+                </div>               
             </div>
         </div>
     </header>
