@@ -290,6 +290,12 @@
             color: #0073e6;
         }
 
+        .qrcode-image {
+            max-width: 100px;
+            border: 2px solid #0073e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
         /* @media */
         @media (max-width: 1024px) {
@@ -405,10 +411,16 @@
                 padding: 2px !important;
                 /* Adjust padding for smaller screens */
                 background-color: blue !important;
-                margin-left: -35px;
+                margin-left: -40px;
                 position: absolute !important;
                 top: 50px;
-                z-index: 100; /* Ensure it appears on top */
+                z-index: 100;
+                /* Ensure it appears on top */
+            }
+
+            .submenu-container {
+                margin-right: 80px !important;
+
             }
 
             header h2 {
@@ -444,6 +456,7 @@
                 margin-bottom: 25px;
 
             }
+
             .Welcome {
                 width: 90%;
                 font-size: 0.85rem;
@@ -455,10 +468,16 @@
                 padding: 2px !important;
                 /* Adjust padding for smaller screens */
                 background-color: blue !important;
-                margin-left: -35px;
+                margin-left: -40px;
                 position: absolute !important;
                 top: 50px;
-                z-index: 100; /* Ensure it appears on top */
+                z-index: 100;
+                /* Ensure it appears on top */
+            }
+
+            .submenu-container {
+                margin-right: 80px !important;
+
             }
 
             header h2 {
@@ -478,7 +497,7 @@
             <h2 style="margin: 0; text-align: center; color: yellow; flex: 1;">BrightPath</h2>
             <div style="position: relative; margin-left: 10px;">
                 <!-- Share Menu -->
-                <div style="position: relative; display: inline-block; margin-right: 140px;">
+                <div class="submenu-container" style="position: relative; display: inline-block; margin-right: 140px;">
                     <button id="share-menu" class="menu-button">
                         Share
                     </button>
@@ -495,12 +514,8 @@
                                 margin-top: 5px;
                                 text-align: center;
                             ">
-                            <img src="images/qrcbpath.png" alt="QR Code" style="
-                                max-width: 100px;
-                                border: 2px solid #0073e6;
-                                border-radius: 8px;
-                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                            ">
+                            <img src="images/qrcbpath.png" alt="QR Code" class="qrcode-image">
+
                         </div>
                         <!-- Envelope Info -->
                         <div id="envelope-info" style="
