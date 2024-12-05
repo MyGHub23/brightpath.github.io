@@ -228,7 +228,7 @@
                 /* Adjust padding to save space */
                 margin-top: -50px;
             }
-          
+
             .center-container {
                 padding: 2rem 2rem;
                 /* Adds extra padding for smaller screens */
@@ -247,7 +247,7 @@
                 max-width: 80%;
                 margin: 1rem 0;
             }
-            
+
         }
 
         @media (max-width: 768px) {
@@ -278,7 +278,7 @@
             .footer {
                 font-size: 0.8rem;
             }
-           
+
         }
 
         @media (max-width: 480px) {
@@ -322,7 +322,7 @@
                 /* Adjust the margin-top for mobile devices */
             }
 
-       
+
         }
 
         /* Envelop */
@@ -352,6 +352,55 @@
                 /* Shift the logo slightly to the left */
             }
         }
+
+        .menu-button {
+            background-color: yellow;
+            color: blue;
+            padding: px 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 190%;
+            left: 0;
+            background-color: #3e06af;
+            box-shadow: 0 4px 8px rgba(208, 15, 15, 0.2);
+            border-radius: 6px;
+            padding: 2px;
+            min-width: 80px;
+            text-align: left;
+            z-index: 100;
+        }
+
+        .submenu-button {
+            display: block;
+            background: none;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            text-align: left;
+            font-size: .8rem;
+            width: 90%;
+            border-bottom: 1px solid #e30808;
+            border-radius: 10px;
+        }
+
+        .submenu-button:last-child {
+            border-bottom: none;
+        }
+
+        /* Hover effect */
+        .submenu-button:hover {
+            background-color: yellow;
+            color: #0073e6;
+        }
     </style>
 
 
@@ -359,27 +408,71 @@
 
 <body>
     <header>
-        <div style="display: flex; justify-content: center; align-items: center; padding: 0.5rem;">
+        <div style="display: flex; justify-content: center; align-items: center; padding: 0.2rem;">
             <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;" id="logo-img">
-            <!-- <img src="images/logo.png" alt="Logo" style="width: 50px; height: 30px; margin-right: 10px;"> -->
             <h2 style="margin: 0; text-align: center; color: yellow; flex: 1;">BrightPath</h2>
             <div style="position: relative; margin-left: 10px;">
-                <a href="#" id="envelope-link" style="display: inline-block;">
-                    <img src="images/envelope.jpg" alt="Envelope"
-                        style="width: 30px; height: 30px; margin-right: 100px; border: 2px solid red;">
-                </a>
+                <!-- Share Menu -->
+                <div style="position: relative; display: inline-block; margin-right: 140px;">
+                    <button id="share-menu" class="menu-button">
+                        Share
+                    </button>
+                    <div id="submenu" class="submenu">
+                        <button id="contact" class="submenu-button">
+                            Contact
+                        </button>
+                        <button id="qrcode" class="submenu-button">
+                            QRcode
+                        </button>
+                        <!-- QR Code Image -->
+                        <div id="qrcode-display" style="
+                                display: none;
+                                margin-top: 5px;
+                                text-align: center;
+                            ">
+                            <img src="images/qrcbpath.png" alt="QR Code" style="
+                                max-width: 100px;
+                                border: 2px solid #0073e6;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            ">
+                        </div>
+                        <!-- Envelope Info -->
+                        <div id="envelope-info" style="
+                            display: none;
+                            position: relative;
+                            margin-top: 5px;
+                            background-color: blue;
+                            color: white;
+                            padding: 2px;
+                            border-radius: 6px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            text-align: center;
+                            font-size: 0.9rem;
+                        ">
+                            <div style="font-weight: bold;">Abu Momen</div>
+                            <div>
+                                <a href="mailto:dreamcarebd@gmail.com"
+                                    style="color: white; text-decoration: none; font-weight: normal;">
+                                    dreamcarebd@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Envelope Info -->
                 <div id="envelope-info" style="
-                display: none;
-                position: absolute;
-                top: 50px;
-                    left: calc(100% - 200px); /* Adjust as needed */
-                background-color: blue;
-                color: white;
-                padding: 5px;
-                border-radius: 4px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                font-size: 0.9rem;">
+                    display: none;
+                    position: absolute;
+                    top: 50px;
+                    left: calc(100% - 200px);
+                    background-color: blue;
+                    color: white;
+                    padding: 0px;
+                    border-radius: 4px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    font-size: 0.8rem;">
                     <div style="font-weight: bold;">Abu Momen</div>
                     <div>
                         <a href="mailto:dreamcarebd@gmail.com"
@@ -411,23 +504,16 @@
 
             <div style="position: relative; display: inline-block; margin-top: -10px;">
                 <div style="font-size: 1rem; color: blue; margin-bottom: 10px; font-weight: bold;">
-                    <p> I am taking care... </p>           
+                    <p> I am taking care... </p>
                 </div>
                 <a id="am-link">
                     <img src="images/AM-pic.jpg" alt="AM Picture"
                         style="width: 200px; height: auto; border: 2px solid #00e63ab8; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; top: 5px;">
-                        <p style="color: white; font-weight: bold; margin-left: 65px; font-style: italic;">
-                            <strong>Abu Momen</strong>
-                          </p>
-                    </a>
-                <!-- <div id="info-container"
-                    style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color:blue; color: white; padding: 5px; border-radius: 4px; font-size: 0.9rem; display: none; z-index: 10;">
-                    <div style="font-size: 1rem;">Abu Momen</div>
-                    <div style="font-size: 0.8rem; margin-top: 5px;">
-                        <a href="mailto:dreamcarebd@gmail.com"
-                            style="color: white; text-decoration: none;">dreamcarebd@gmail.com</a>
-                    </div>
-                </div> -->
+                    <p style="color: white; font-weight: bold; margin-left: 65px; font-style: italic;">
+                        <strong>Abu Momen</strong>
+                    </p>
+                </a>
+
             </div>
         </div>
 
@@ -549,26 +635,46 @@
         });
 
         // Envelop
-        // Envelope toggle functionality
-        const envelopeLink = document.getElementById('envelope-link');
-        const envelopeInfo = document.getElementById('envelope-info');
+        document.addEventListener('DOMContentLoaded', () => {
+    const shareMenu = document.getElementById('share-menu');
+    const submenu = document.getElementById('submenu');
+    const contactButton = document.getElementById('contact');
+    const envelopeInfo = document.getElementById('envelope-info');
+    const qrcodeButton = document.getElementById('qrcode');
+    const qrcodeDisplay = document.getElementById('qrcode-display');
 
-        // Toggle visibility on click
-        envelopeLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            if (envelopeInfo.style.display === 'none' || !envelopeInfo.style.display) {
-                envelopeInfo.style.display = 'block';
-            } else {
-                envelopeInfo.style.display = 'none';
-            }
-        });
+    // Toggle submenu visibility
+    shareMenu.addEventListener('click', () => {
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    });
 
-        // Hide the info box when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!envelopeInfo.contains(event.target) && !envelopeLink.contains(event.target)) {
-                envelopeInfo.style.display = 'none';
-            }
-        });
+    // Toggle envelope-info visibility
+    contactButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent bubbling
+        envelopeInfo.style.display = envelopeInfo.style.display === 'block' ? 'none' : 'block';
+        qrcodeDisplay.style.display = 'none'; // Ensure QR code is hidden
+    });
+
+    // Toggle QR code visibility
+    qrcodeButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent bubbling
+        qrcodeDisplay.style.display = qrcodeDisplay.style.display === 'block' ? 'none' : 'block';
+        envelopeInfo.style.display = 'none'; // Ensure envelope-info is hidden
+    });
+
+    // Hide submenu, envelope-info, and QR code when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!shareMenu.contains(event.target) && !submenu.contains(event.target)) {
+            submenu.style.display = 'none';
+        }
+        if (!contactButton.contains(event.target) && !envelopeInfo.contains(event.target)) {
+            envelopeInfo.style.display = 'none';
+        }
+        if (!qrcodeButton.contains(event.target) && !qrcodeDisplay.contains(event.target)) {
+            qrcodeDisplay.style.display = 'none';
+        }
+    });
+});
 
     </script>
 
